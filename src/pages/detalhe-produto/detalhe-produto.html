@@ -1,0 +1,36 @@
+<!--
+  Generated template for the DetalheProdutoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>detalheProduto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid *ngIf="detalheProduto">
+    <ion-row>
+      <ion-col col-12>
+        <h4>{{detalheProduto.titulo}}</h4>
+        <img src="https://www.petlove.com.br/images/products/190264/product/Ra%C3%A7%C3%A3o_Premier_Golden_Special_C%C3%A3es_Adultos_Frango_e_Carne_20kg_31014070.jpg?1556401614">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+          <h4>Estoque</h4>
+          <ion-card>
+              <ion-card-content>
+                  <ion-list><strong>Valor unitário:</strong> {{detalheProduto.preco | currency:'BRL':true}}</ion-list>
+                  <ion-list><strong>Quantidade disponível:</strong> {{detalheProduto.qtdProduto}} </ion-list>
+                  <ion-list><strong>Valor em estoque:</strong> {{detalheProduto.valorEstoque}} </ion-list>
+                  <ion-list><strong>Fornecedor:</strong> Premier Pet</ion-list>
+              </ion-card-content>                
+          </ion-card>
+      </ion-col>
+    </ion-row>
+    <button ion-button color="primary" round>Dar baixa no estoque</button>        
+  </ion-grid>
+</ion-content>
