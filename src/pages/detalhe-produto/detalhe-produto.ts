@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IProduto } from '../../../interfaces/IProduto';
 import { ProdutoProvider } from '../../providers/produto/produto';
 
 @IonicPage()

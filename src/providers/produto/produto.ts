@@ -60,12 +60,45 @@ export class ProdutoProvider {
   .catch((e) => console.log(e));
  }
 
- update() {
+ public update(produto: IProduto) {
+  return this.db.getDB()
+  .then((db: SQLiteObject) => {
+    let sql = 'UPDATE produto SET titulo = ?, preco = ?, qtdProduto = ?, valorEstoque = ?, fornecedor = ?)';
+    let data = [produto.titulo, produto.preco, produto.qtdProduto, produto.valorEstoque, produto.fornecedor];
 
+    return db.executeSql(sql, data)
+      .catch((e) => console.log(e));
+  })
+  .catch((e) => console.log(e));
  }
 
- delete() {
+ public delete(idProduto: any) {
+  return this.db.getDB()
+  .then((db: SQLiteObject) => {
+    let sql = 'DELETE FROM produto WHERE id_produto = ?';
+    let data = [idProduto];
+    return db.executeSql(sql, data).then((data: any) => {
+      if(data.rows.length > 0) {
+        let item = data.rows.item(0);
+        return item;
+      }
+      return null;
+    })
+      .catch((e) => console.log(e));
+  })
+  .catch((e) => console.log(e));
+ }
 
+ public darBaixa(produto: IProduto) {
+  return this.db.getDB()
+  .then((db: SQLiteObject) => {
+    let sql = 'UPDATE produto SET qtdProduto = ?)';
+    let data = [produto.qtdProduto];
+
+    return db.executeSql(sql, data)
+      .catch((e) => console.log(e));
+  })
+  .catch((e) => console.log(e));
  }
 
 }
