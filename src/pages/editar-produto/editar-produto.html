@@ -6,28 +6,28 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>editarProduto</ion-title>
+    <ion-title>Editar Produto</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h6>Cadastre um produto</h6>
-  <form>
+  <h6>Edite um produto</h6>
+  <form *ngIf="produto">
     <ion-item>
       <ion-label floating>Título</ion-label>
-      <ion-input [(ngModel)]="produto.titulo" type="text" name="titulo"></ion-input>
+      <ion-input [(ngModel)]="produto.titulo" type="text" name="titulo" value="{{produto.titulo}}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Fornecedor</ion-label>
-      <ion-input [(ngModel)]="produto.fornecedor" type="text" name="fornecedor"></ion-input>
+      <ion-input [(ngModel)]="produto.fornecedor" type="text" name="fornecedor" value="{{produto.fornecedor}}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Quantidade</ion-label>
-      <ion-input [(ngModel)]="produto.qtdProduto" type="number" name="qtdProduto"></ion-input>
+      <ion-input [(ngModel)]="produto.qtdProduto" type="number" name="qtdProduto" value="{{produto.qtdProduto}}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Valor Unitário</ion-label>
-      <ion-input [(ngModel)]="produto.preco" name="preco"></ion-input>
+      <ion-input [(ngModel)]="produto.preco" name="preco" value="{{produto.preco}}"></ion-input>
     </ion-item>
     <button ion-button type="submit" block round (click)="editarProduto()">Editar</button>
   </form>

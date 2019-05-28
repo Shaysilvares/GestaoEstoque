@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>detalheProduto</ion-title>
+    <ion-title>Detalhe Produto</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -25,8 +25,8 @@
           </ion-card>
       </ion-col>
     </ion-row>
-    <button ion-button color="primary" round (click)="darBaixa()">Dar baixa no estoque</button>
-    <button ion-button color="primary" round (click)="editarProduto()">Editar Produto</button> 
+    <button ion-button color="primary" round (click)="openBaixaEstoquePage(detalheProduto)">Dar baixa no estoque</button>
+    <button ion-button color="primary" round (click)="openEditarProdutoPage(detalheProduto)">Editar Produto</button> 
     <button ion-button color="danger" round (click)="deletarProduto()">Deletar</button>        
   </ion-grid> 
 </ion-content>

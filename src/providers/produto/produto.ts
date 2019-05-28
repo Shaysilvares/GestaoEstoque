@@ -63,7 +63,7 @@ export class ProdutoProvider {
  public update(produto: IProduto) {
   return this.db.getDB()
   .then((db: SQLiteObject) => {
-    let sql = 'UPDATE produto SET titulo = ?, preco = ?, qtdProduto = ?, valorEstoque = ?, fornecedor = ?)';
+    let sql = 'UPDATE produto SET titulo = ?, preco = ?, qtdProduto = ?, valorEstoque = ?, fornecedor = ?';
     let data = [produto.titulo, produto.preco, produto.qtdProduto, produto.valorEstoque, produto.fornecedor];
 
     return db.executeSql(sql, data)

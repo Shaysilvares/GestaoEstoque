@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutoProvider } from '../../providers/produto/produto';
-
-/**
- * Generated class for the EditarProdutoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -25,14 +19,26 @@ export class EditarProdutoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditarProdutoPage');
+    this.buscarProduto();
   }
 
 
   buscarProduto() {
     this.produtoId = this.navParams.get("id");
+    console.log(this.produtoId);
     this.produtoProvider.buscarProdutoPorId(this.produtoId).then((data) => {
       console.log(data);
       this.produto = data;
+    }).catch((e) => {
+      console.log(e);
+    })
+  }
+
+  editarProduto() {
+    this.produto.valorEstoque = this.produto.preco * this.produto.qtdProduto;
+    this.produtoProvider.update(this.produto).then((data) => {
+      console.log(data);
+      this.navCtrl.setRoot(HomePage);
     }).catch((e) => {
       console.log(e);
     })

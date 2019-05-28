@@ -17,6 +17,7 @@ import localePtBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { DetalheProdutoPage } from '../pages/detalhe-produto/detalhe-produto';
 import { EditarProdutoPage } from '../pages/editar-produto/editar-produto';
+import { BaixaEstoquePage } from '../pages/baixa-estoque/baixa-estoque';
 
 registerLocaleData(localePtBr);
 
@@ -26,7 +27,8 @@ registerLocaleData(localePtBr);
     HomePage,
     CadastroProdutoPage,
     DetalheProdutoPage,
-    EditarProdutoPage
+    EditarProdutoPage,
+    BaixaEstoquePage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ registerLocaleData(localePtBr);
     HomePage,
     CadastroProdutoPage,
     DetalheProdutoPage,
-    EditarProdutoPage
+    EditarProdutoPage,
+    BaixaEstoquePage
   ],
   providers: [
     StatusBar,

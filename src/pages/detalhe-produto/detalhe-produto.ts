@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutoProvider } from '../../providers/produto/produto';
 import { EditarProdutoPage } from '../editar-produto/editar-produto';
 import { HomePage } from '../home/home';
+import { IProduto } from '../../../interfaces/IProduto';
+import { BaixaEstoquePage } from '../baixa-estoque/baixa-estoque';
 
 @IonicPage()
 @Component({
@@ -31,23 +33,6 @@ buscarProduto() {
   })
 }
 
-darBaixa() {
-  this.produtoProvider.darBaixa(this.detalheProduto).then((data) => {
-    console.log(data);
-  }).catch((e) => {
-    console.log(e);
-  })
-}
-
-editarProduto() {
-  this.produtoProvider.update(this.detalheProduto).then((data) => {
-    console.log(data);
-    this.navCtrl.push(EditarProdutoPage);
-  }).catch((e) => {
-    console.log(e);
-  })
-}
-
 deletarProduto() {
   this.detalheProdutoId = this.navParams.get("id");
   this.produtoProvider.delete(this.detalheProdutoId).then((data) => {
@@ -56,6 +41,14 @@ deletarProduto() {
   }).catch((e) => {
     console.log(e);
   })
+}
+
+openEditarProdutoPage(produto: IProduto) {
+  this.navCtrl.push(EditarProdutoPage, { id: produto.id_produto});
+}
+
+openBaixaEstoquePage(produto: IProduto) {
+  this.navCtrl.push(BaixaEstoquePage, { id: produto.id_produto});
 }
 
 }
