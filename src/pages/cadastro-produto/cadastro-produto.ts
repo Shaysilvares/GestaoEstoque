@@ -35,10 +35,11 @@ export class CadastroProdutoPage {
   }
 
   cadastrarProduto() {
+    this.produto.valorEstoque = this.produto.preco * this.produto.qtdProduto;
     this.produtoProvider.insert(this.produto)
     .then((data) => console.log(data))
     .catch((e) => console.log(e));
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

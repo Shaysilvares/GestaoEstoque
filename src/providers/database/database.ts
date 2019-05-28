@@ -26,15 +26,9 @@ export class DatabaseProvider {
   }
 
   private createTable(db: SQLiteObject) {
-    db.executeSql('CREATE TABLE IF NOT EXISTS produto (id_produto INTEGER primary key AUTOINCREMENT NOT NULL, titulo TEXT NOT NULL, preco REAL, qtdProduto INTEGER, valorEstoque REAL)', [])
+    db.executeSql('CREATE TABLE IF NOT EXISTS produto (id_produto INTEGER primary key AUTOINCREMENT NOT NULL, titulo TEXT NOT NULL, preco REAL, qtdProduto INTEGER, valorEstoque REAL, fornecedor TEXT)', [])
     .then(() => console.log('tabela criada com sucesso'))
     .catch(e => console.log(e));
   }
-
-  /* private alterTable(db: SQLiteObject) {
-    db.executeSql('ALTER TABLE produto ADD fornecedor TEXT', [])
-    .then(() => console.log('alterado com sucesso'))
-    .catch(e => console.log(e));
-  } */
 
 }

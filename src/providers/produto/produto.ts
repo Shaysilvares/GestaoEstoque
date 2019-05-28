@@ -73,6 +73,7 @@ export class ProdutoProvider {
  }
 
  public delete(idProduto: any) {
+   console.log('delete' + idProduto);
   return this.db.getDB()
   .then((db: SQLiteObject) => {
     let sql = 'DELETE FROM produto WHERE id_produto = ?';

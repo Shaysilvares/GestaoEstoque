@@ -19,16 +19,14 @@
               <ion-card-content>
                   <ion-list><strong>Valor unitário:</strong> {{detalheProduto.preco | currency:'BRL':true}}</ion-list>
                   <ion-list><strong>Quantidade disponível:</strong> {{detalheProduto.qtdProduto}} </ion-list>
-                  <ion-list><strong>Valor em estoque:</strong> {{detalheProduto.valorEstoque}} </ion-list>
-                  <ion-list><strong>Fornecedor:</strong> Premier Pet</ion-list>
+                  <ion-list><strong>Valor em estoque:</strong> {{detalheProduto.valorEstoque | currency:'BRL':true}} </ion-list>
+                  <ion-list><strong>Fornecedor:</strong> {{detalheProduto.fornecedor}}</ion-list>
               </ion-card-content>                
           </ion-card>
       </ion-col>
     </ion-row>
-    <button ion-button color="primary" round>Dar baixa no estoque</button>        
-  </ion-grid>
-
-  <ion-fab right bottom>
-    <button ion-fab color="primary"><ion-icon name="md-edit"></ion-icon></button>
-</ion-fab> 
+    <button ion-button color="primary" round (click)="darBaixa()">Dar baixa no estoque</button>
+    <button ion-button color="primary" round (click)="editarProduto()">Editar Produto</button> 
+    <button ion-button color="danger" round (click)="deletarProduto()">Deletar</button>        
+  </ion-grid> 
 </ion-content>
