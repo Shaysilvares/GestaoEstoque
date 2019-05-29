@@ -6,10 +6,28 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>baixaEstoque</ion-title>
+    <ion-title>Estoque</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <form *ngIf="produto">
+    <ion-item>
+      <ion-label floating>Título</ion-label>
+      <ion-input [(ngModel)]="produto.titulo" type="text" name="titulo" value="{{produto.titulo}}" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Fornecedor</ion-label>
+      <ion-input [(ngModel)]="produto.fornecedor" type="text" name="fornecedor" value="{{produto.fornecedor}}" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Quantidade</ion-label>
+      <ion-input [(ngModel)]="produto.qtdProduto" type="number" name="qtdProduto" value="{{produto.qtdProduto}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Valor Unitário</ion-label>
+      <ion-input [(ngModel)]="produto.preco" name="preco" value="{{produto.preco}}" disabled="true"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block round (click)="darBaixa()">Dar baixa</button>
+  </form>
 </ion-content>

@@ -93,9 +93,8 @@ export class ProdutoProvider {
  public darBaixa(produto: IProduto) {
   return this.db.getDB()
   .then((db: SQLiteObject) => {
-    let sql = 'UPDATE produto SET qtdProduto = ?)';
+    let sql = 'UPDATE produto SET qtdProduto = ?';
     let data = [produto.qtdProduto];
-
     return db.executeSql(sql, data)
       .catch((e) => console.log(e));
   })
